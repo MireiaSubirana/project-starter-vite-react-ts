@@ -1,0 +1,140 @@
+/* =============================================================================
+ * base.css - the handful of rules that apply to the whole page
+ * =============================================================================
+ * WHY THIS FILE EXISTS
+ * Everything else in this system is scoped to one component (that is what
+ * CSS Modules give you). But a few things are genuinely page-wide, and if they
+ * do not live here they get copy-pasted into every component instead - which
+ * is how `box-sizing: border-box` ended up repeated in seven files in the
+ * project this template came from.
+ *
+ * RULE OF THUMB
+ * A rule belongs here only if it is true for the entire page no matter what is
+ * on it. Anything about a specific component belongs in that component's
+ * .module.css. This file should stay short. If it is growing, something in it
+ * probably belongs to a component.
+ *
+ * Imported once in src/main.tsx (the real site) and once in
+ * .storybook/preview.tsx (Storybook), always AFTER tokens.css - these rules
+ * use the variables, so the variables have to exist first.
+ * ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+ * 1. Box sizing
+ * By default, giving an element `width: 300px` and `padding: 20px` makes it
+ * 340px wide - the padding is added on the outside. `border-box` makes the
+ * padding count INSIDE the width, which is how Figma's auto layout already
+ * behaves. Setting it once here means it is true everywhere and no component
+ * has to think about it.
+ * ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------------
+ * 2. The page itself
+ * Browsers add a small default margin around the page - remove it. The colours
+ * come from the semantic tokens, so the page follows light/dark mode for free.
+ *
+ * NOTE ON THE FONT: body's typography is NOT set here. index.html puts
+ * class="font-body-md-default" on <body> instead, which reuses the generated text-style
+ * class from tokens.css. That way the body copy recipe lives in exactly one
+ * place (your Figma text style) rather than being half-duplicated here.
+ * ------------------------------------------------------------------------- */
+body {
+  margin: 0;
+  background-color: var(--color-surface-default);
+  color: var(--color-text-default);
+  /* Makes text render slightly thinner on macOS, closer to how Figma shows it. */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------------------
+ * 3. Unopinionated resets
+ * Browsers add margins to headings, paragraphs and lists, and those margins
+ * fight with the gaps your Figma auto layout defines. Zeroing them means
+ * spacing always comes from a space token in a component, never from a
+ * browser default you forgot about.
+ * ------------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* An image should behave like a block and never overflow its container. */
+img,
+picture,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form controls do not inherit the page font by default. Make them. */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---------------------------------------------------------------------------
+ * 4. Focus ring
+ * A visible focus outline is a hard accessibility requirement - it is how
+ * anyone navigating by keyboard knows where they are. `:focus-visible` shows
+ * it for keyboard users but not on mouse clicks, which is the behaviour you
+ * want. Components may override this with something prettier, but there is
+ * always a ring by default rather than nothing.
+ * ------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * 5. The page container
+ * Uses the two layout tokens. Put this class on a wrapper to get the standard
+ * side gutter and the maximum content width, centred. Most page sections want
+ * a full-bleed background with a contained inner wrapper, which looks like:
+ *
+ *   <section class={styles.section}>        <- full width, background colour
+ *     <div class="layout-container"> ... </div>   <- contained content
+ *   </section>
+ * ------------------------------------------------------------------------- */
+.layout-container {
+  width: 100%;
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+  padding-inline: var(--layout-gutter);
+}
+
+/* ---------------------------------------------------------------------------
+ * 6. Respect "reduce motion"
+ * Some people have motion sensitivity and set this in their OS. Honouring it
+ * once here means no individual animation has to remember to.
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

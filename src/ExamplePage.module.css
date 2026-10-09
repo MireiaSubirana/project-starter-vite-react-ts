@@ -1,0 +1,83 @@
+/*
+ * Styles for the smoke-test page. Delete this file along with ExamplePage.tsx.
+ *
+ * Note that even this throwaway page uses only tokens - no hardcoded colours
+ * or sizes. That is the habit worth keeping: if a value is not a token, it is
+ * a decision nobody wrote down.
+ */
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-500);
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-block: var(--space-800);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  padding-block: var(--space-800);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+}
+
+/* A label on the left, the thing being demonstrated on the right. */
+.typeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-400);
+  align-items: baseline;
+}
+
+/* Monospace so the token names line up and read as code, not prose. */
+.label {
+  flex: 0 0 14rem;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.swatchGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-400);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+}
+
+/*
+ * The border matters: without it a white swatch on a white page is invisible,
+ * which would make the smoke test lie to you.
+ */
+.chip {
+  width: var(--space-900);
+  height: var(--space-900);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+.spaceBar {
+  height: var(--space-400);
+  background-color: var(--color-surface-accent-subtle);
+  border-radius: var(--radius-md);
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-400);
+  align-items: center;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- TEMPLATE: replace public/favicon.svg with the project's mark. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TEMPLATE: change this to the project name. -->
+    <title>Design System Starter</title>
+
+    <!-- TEMPLATE: load the project's real typeface here, in the weights your
+         Figma font-weight tokens actually use. Right now this is Poppins at
+         400/600/700, matching the placeholder tokens. If your project uses a
+         different font, change it here AND in tokens.json (font-family/sans) -
+         those two have to agree or the page silently falls back to a system
+         sans-serif. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <!-- `font-body-md-default` is one of the text-style classes generated into
+       tokens.css from the Figma text styles. Putting it on <body> means the
+       whole page inherits the body copy recipe (family, size, weight, line
+       height, letter spacing) from a single definition, instead of base.css
+       re-stating half of it. Change it if your body style is named something
+       else in Figma. -->
+  <body class="font-body-md-default">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
