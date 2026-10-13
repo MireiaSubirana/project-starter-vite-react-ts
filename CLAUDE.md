@@ -1,11 +1,11 @@
-# [PROJECT NAME] — design system
+# [PROJECT NAME]
 
 > **TEMPLATE.** Fill in the bracketed bits when you start a project, then
 > delete this line. Everything else is already true and should stay.
 
 ## Who you're working with
 
-Mireia is a **designer who also builds the thing.** She reads design intent
+I am a **designer who also builds the thing.** I read design intent
 fluently and programming idiom much less so.
 
 - Explain in plain English, and explain the **why**, not just the what.
@@ -14,13 +14,13 @@ fluently and programming idiom much less so.
   container queries, `:focus-visible`).
 - Prefer pointing at the real file and walking through it over abstract
   explanation.
-- Work in reviewable chunks and stop to show her, rather than one giant change.
+- Work in reviewable chunks and stop to show me, rather than one giant change.
 
 ## The Figma source
 
 File: *[FILE NAME]* (fileKey `[KEY]`)
 
-**Read-only unless she explicitly asks otherwise.**
+**Read-only unless I explicitly ask otherwise.**
 
 Access it through the **figma-console MCP** (Desktop Bridge plugin), not the
 REST API — the stored token lacks `files:read` scope, so REST-backed tools like

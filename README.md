@@ -1,7 +1,18 @@
-# Design System Starter
+# Project Starter — Vite + React + TypeScript
 
-A starting point for turning a Figma file into a small React design system,
-with Storybook on top. Clone it per project.
+A **starter project template** for building a site or app from a Figma file.
+Clone it every time you start something new, point it at a different Figma
+file, and go.
+
+It is not a design system. It is the scaffolding you'd otherwise rebuild from
+scratch each time: the token pipeline from Figma to CSS, the house conventions
+for writing a component, Storybook already configured, and the written
+step-by-step for a fresh Figma → code run.
+
+**Stack:** Vite · React · TypeScript · Storybook · Vitest. The stack is baked
+in deliberately — the token build script, the Storybook config and the
+component conventions all assume it. For a different stack (Astro, Next, plain
+HTML), start a separate template rather than bending this one.
 
 **It deliberately ships almost no components.** Every project — landing page,
 ecommerce, corporate site, portfolio, mobile app, webapp — needs a different
@@ -51,18 +62,10 @@ names on different days.
 `CLAUDE.md` has the full naming table. Get it right in Figma at the start; it
 is the cheapest it will ever be.
 
-## Where the components went
-
-This template was extracted from `DemoDesignSystem`, which has ten built
-components — navigation, hero, cards, a media-and-text section, a feature grid,
-footer. They are all still there, committed and pushed. When a project needs a
-pattern, copy that folder out of the demo repo and adapt it. It is a reference
-library you pull from, not baggage you carry.
-
 ## Known
 
-- The token values in `tokens.json` are **placeholders** from the demo project,
-  kept so the build works the moment you clone. Replace them.
+- The token values in `tokens.json` are **placeholders**, kept so the build
+  works the moment you clone. Replace them with the real file's tokens.
 - `node_modules` is not included; run `npm install`.
 - No tests are written, though Vitest and the Storybook test addon are wired up.
 - The a11y addon runs in Storybook as a warning, not a gate.
